@@ -10,6 +10,7 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    // 修改proxy属性  将api路径映射到static/mock文件夹
     proxyTable: {
       '/api': {
         target: 'http://localhost:8080',

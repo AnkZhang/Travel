@@ -24,6 +24,7 @@ export default {
   computed: {
     letters () {
       const letters = []
+      // key是A、B等字母开头，value是城市对象的数组。将城市首字母push到数组中
       for (let i in this.cities) {
         letters.push(i)
       }
@@ -38,6 +39,7 @@ export default {
     }
   },
   updated () {
+     //通过offsetTop获取A字母在父标签ul中的纵坐标
     this.startY = this.$refs['A'][0].offsetTop
   },
   methods: {
@@ -49,6 +51,7 @@ export default {
     },
     handleTouchMove (e) {
       if (this.touchStatus) {
+        // //函数节流，16ms后再执行计算操作
         if (this.timer) {
           clearTimeout(this.timer)
         }

@@ -30,6 +30,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+// 调用该文件。自动省略过于长的文字
   @import "~styles/mixins.styl"
   .title
     margin-top: .2rem

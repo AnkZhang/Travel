@@ -22,6 +22,7 @@ export default {
         pagination: {
           el: '.swiper-pagination'
         },
+        // 设置小圆点和自动滚动
         loop: true,
         autoplay: true
       }
@@ -36,6 +37,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+// 设置.wrapper里的.swiper-pagination-bullet-active类型的样式，
+// 因为swiper是另一个组件中的class，>>>可以穿透到其它组件，无视scoped的作用。
   .wrapper >>> .swiper-pagination-bullet-active {
     background: #fff !important
   }

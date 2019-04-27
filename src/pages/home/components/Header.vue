@@ -7,12 +7,14 @@
       <span class="iconfont">&#xe632;</span>
       输入城市/景点/游玩主题
     </div>
+    <!-- 在Header.vue中为右侧按钮添加跳转链接 -->
     <router-link to="/city">
       <div class="header-right">
         {{this.city}}
         <span class="iconfont arrow-icon">&#xe62d;</span>
       </div>
     </router-link>
+    
   </div>
 </template>
 
@@ -27,6 +29,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+// <style>中的import前要加@,引用的路径之前要加~
   @import "~styles/varibles.styl"
   .header
     display: flex

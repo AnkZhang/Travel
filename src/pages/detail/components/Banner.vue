@@ -13,6 +13,7 @@
       </div>
     </div>
     <fade-animation>
+      <!-- common-gallary替换原子组件里面的slot插槽 -->
       <common-gallary
         :imgs="bannerImgs"
         v-show="showGallary"

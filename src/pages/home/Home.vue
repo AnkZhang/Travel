@@ -39,13 +39,17 @@ export default {
   },
   methods: {
     getHomeInfo () {
+      // get方法返回promise类型的实例
       axios.get('/api/index.json?city=' + this.city)
+      // then函数可以回调请求成功或失败后两个函数，
+      // 这里只写了成功情况的函数
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
+        // Home组件请求到数据后，通过添加属性的方式向子组件传值
         this.swiperList = data.swiperList
         this.iconList = data.iconList
         this.recommendList = data.recommendList
@@ -65,6 +69,8 @@ export default {
   }
 }
 </script>
+// scoped意思是选择器只作用在这个组件中，和其它组件中同名的类名等不会冲突。
+<style lang="stylus" scoped>
 
-<style>
 </style>
+

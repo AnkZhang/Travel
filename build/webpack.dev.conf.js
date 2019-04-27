@@ -15,6 +15,7 @@ const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
+    // 通过传入一些配置来获取rules配置，此处都为true，表示都生成
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
   },
   // cheap-module-eval-source-map is faster for development
@@ -45,19 +46,25 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }
   },
   plugins: [
+    //定义全局变量
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
     }),
+    // 热更新插件
     new webpack.HotModuleReplacementPlugin(),
+    //在热加载时直接返回更新文件名，而不是文件的id
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
+   // 不触发错误，即编译后运行的包正常运行 
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
+    // 自动生成html文件，比如编译后文件的引用
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
       inject: true
     }),
     // copy custom static assets
+    //将资源进行复制的插件
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../static'),

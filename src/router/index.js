@@ -1,3 +1,4 @@
+// 路由配置文件，可进行自定义配置，然后引入到main.js中，加入至vue实例。
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/home/Home'
@@ -11,8 +12,7 @@ export default new Router({
     path: '/',
     name: 'Home',
     component: Home
-    // component() => import('@/pages/home/Home')
-  }, {
+  }, { //设置城市选择页的路由
     path: '/city',
     name: 'City',
     component: City

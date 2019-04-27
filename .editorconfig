@@ -1,9 +1,15 @@
+#  表明是最顶层的配置文件，发现设为true时，才会停止查找.editorconfig文件。
 root = true
 
 [*]
+# 字符集编码格式
 charset = utf-8
+# 缩进风格为空格
 indent_style = space
+# 缩进大小为2
 indent_size = 2
+# 以unix风格的换行符结尾
 end_of_line = lf
 insert_final_newline = true
+# 是否将行尾空格自动删除
 trim_trailing_whitespace = true

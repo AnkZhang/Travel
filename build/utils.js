@@ -17,8 +17,9 @@ exports.cssLoaders = function (options) {
 
   const cssLoader = {
     loader: 'css-loader',
+    // options 是 css-loader的选项配置
     options: {
-      sourceMap: options.sourceMap
+      sourceMap: options.sourceMap// 根据参数是否要生成sourceMap文件
     }
   }
 
@@ -31,11 +32,13 @@ exports.cssLoaders = function (options) {
 
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
+    // 默认的loader是css-loader
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
 
     if (loader) {
       loaders.push({
         loader: loader + '-loader',
+        // 将loaderOptions和sourceMap组成一个对象
         options: Object.assign({}, loaderOptions, {
           sourceMap: options.sourceMap
         })
@@ -45,9 +48,10 @@ exports.cssLoaders = function (options) {
     // Extract CSS when that option is specified
     // (which is the case during production build)
     if (options.extract) {
+      // ExtractTextPlugin 分离js中引入的css文件
       return ExtractTextPlugin.extract({
-        use: loaders,
-        fallback: 'vue-style-loader'
+        use: loaders,// 处理loader
+        fallback: 'vue-style-loader'// 没有被提取分离时使用的loader
       })
     } else {
       return ['vue-style-loader'].concat(loaders)
@@ -56,6 +60,7 @@ exports.cssLoaders = function (options) {
 
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
+    //返回css类型对应的loader组成的对象  generateLoaders()来生成loader
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),

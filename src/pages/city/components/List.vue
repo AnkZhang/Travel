@@ -42,6 +42,7 @@
 </template>
 
 <script>
+// 安装引用better-scroll插件
 import Bscroll from 'better-scroll'
 import {mapState, mapMutations} from 'vuex'
 export default {
@@ -65,8 +66,11 @@ export default {
     ...mapMutations(['changeCity'])
   },
   mounted () {
+    // 需要滚动的区域必须是个完整的标签，所以所有的area区域整体套了一层<div>
     this.scroll = new Bscroll(this.$refs.wrapper)
   },
+ //letter是通过alphabet.vue传向City.vue，再从City.vue通过属性传入list.vue
+//list中监听letter属性，一旦变化触发better-scroll的跳转方法，跳转到对应列
   watch: {
     letter () {
       if (this.letter) {
